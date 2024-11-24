@@ -1,0 +1,91 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background: url('image copy.png') no-repeat center center fixed;
+    background-size: cover;
+}
+/* Side Menu */
+.side-menu {
+    height: 100%;
+    width: 0; /* Awalnya disembunyikan */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 0, 0, 0.8); /* Transparansi */
+    overflow-x: hidden;
+    transition: 0.5s; /* Efek transisi */
+    padding-top: 60px;
+}
+
+.side-menu a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff; /* Warna teks */
+    display: block;
+    transition: 0.3s;
+}
+
+.side-menu a:hover {
+    background-color: #fff;
+    color: #000000; /* Warna teks saat hover */
+    border-radius: 50px;
+}
+
+.side-menu .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* Content */
+.content {
+    padding: 20px;
+}
+
+.menu-btn {
+    font-size: 30px;
+    cursor: pointer;
+    color: #ffffff; /* Warna tombol menu */
+    background-color: transparent; /* Warna latar belakang tombol */
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.menu-btn:hover {
+    background-color: transparent; /* Warna latar tombol saat hover */
+}
+
+
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}

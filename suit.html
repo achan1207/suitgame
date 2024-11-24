@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUIT GAME</title>
+    <link rel="stylesheet" href="suit.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+    <!-- SweetAlert2 Library -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="background-image">
+        <!-- Tombol kembali -->
+        <a href="game.html" class="back-button">⬅ Back</a>
+        <main>
+            <!-- Konten lainnya -->
+        </main>
+    </div>
+    <div class="background-image">
+        <main>
+            <!-- Skor di tengah -->
+            <span class="box_score">
+                <p style="background-color: rgb(0, 163, 0); padding: 5px">P1</p>
+                <span class="score_p1">0</span> : <span class="score_p2">0</span>
+                <p style="background-color: rgb(163, 0, 0); padding: 5px">P2</p>
+            </span>
+
+            <!-- Tombol Start -->
+            <span class="start">
+                <h3>GO</h3>
+            </span>
+
+            <!-- Container untuk pemain -->
+            <div class="players-container">
+                <!-- Pemain 1 -->
+                <div id="box_player1">
+                    <h3>Player 1</h3>
+                    <img id="img_player1" src="Kertas.png" width="100px">
+                    <button onclick="player1()" disabled>STOP</button>
+                </div>
+
+                <!-- Pemain 2 -->
+                <div id="box_player2">
+                    <h3>Player 2</h3>
+                    <img id="img_player2" src="Batu.png" width="100px">
+                    <button onclick="player2()" disabled>STOP</button>
+                </div>
+            </div>
+        </main>
+        <script>
+            let randomIndex_1, randomIndex_2;
+            let p1, p2;
+            let isGameActive = false;
+
+            const player_1 = ["Kertas.png", "Gunting.png", "Batu.png"];
+            const player_2 = ["Kertas.png", "Gunting.png", "Batu.png"];
+
+            document.querySelector(".start").addEventListener("click", function () {
+                if (isGameActive) return;
+
+                isGameActive = true;
+                document.querySelector("#box_player1 button").disabled = false;
+                document.querySelector("#box_player2 button").disabled = false;
+
+                p1 = setInterval(function () {
+                    randomIndex_1 = Math.floor(Math.random() * player_1.length);
+                    document.querySelector("#img_player1").src = player_1[randomIndex_1];
+                }, 100);
+
+                p2 = setInterval(function () {
+                    randomIndex_2 = Math.floor(Math.random() * player_2.length);
+                    document.querySelector("#img_player2").src = player_2[randomIndex_2];
+                }, 100);
+            });
+
+            let hasil_p1, hasil_p2;
+            let click_btn = 0;
+            let score_p1 = 0;
+            let score_p2 = 0;
+
+            function player1() {
+                clearInterval(p1);
+                hasil_p1 = player_1[randomIndex_1];
+                click_btn++;
+
+                if (click_btn % 2 === 0) {
+                    tampilkan();
+                }
+            }
+
+            function player2() {
+                clearInterval(p2);
+                hasil_p2 = player_2[randomIndex_2];
+                click_btn++;
+
+                if (click_btn % 2 === 0) {
+                    tampilkan();
+                }
+            }
+
+            function tampilkan() {
+                let status;
+
+                if (hasil_p1 === hasil_p2) {
+                    status = "SERI";
+                } else if (hasil_p1 === "Kertas.png") {
+                    status = hasil_p2 === "Batu.png" ? "P1 WIN" : "P2 WIN";
+                } else if (hasil_p1 === "Gunting.png") {
+                    status = hasil_p2 === "Kertas.png" ? "P1 WIN" : "P2 WIN";
+                } else if (hasil_p1 === "Batu.png") {
+                    status = hasil_p2 === "Gunting.png" ? "P1 WIN" : "P2 WIN";
+                }
+
+                if (status === "P1 WIN") {
+                    score_p1++;
+                } else if (status === "P2 WIN") {
+                    score_p2++;
+                }
+
+                document.querySelector(".score_p1").innerHTML = score_p1;
+                document.querySelector(".score_p2").innerHTML = score_p2;
+
+                document.querySelector("#box_player1 button").disabled = true;
+                document.querySelector("#box_player2 button").disabled = true;
+
+                isGameActive = false;
+                click_btn = 0;
+
+                if (score_p1 === 3 || score_p2 === 3) {
+                    gameOver();
+                }
+            }
+
+            function gameOver() {
+                let winner = score_p1 > score_p2 ? "Player 1 WIN!" : "Player 2 WIN!";
+                Swal.fire({
+                    title: winner,
+                    text: "Game Over",
+                    icon: "success",
+                    confirmButtonText: "Play Again",
+                }).then(() => {
+                    // Reset the game
+                    score_p1 = 0;
+                    score_p2 = 0;
+                    document.querySelector(".score_p1").innerHTML = score_p1;
+                    document.querySelector(".score_p2").innerHTML = score_p2;
+                    isGameActive = false;
+                    document.querySelector("#box_player1 button").disabled = true;
+                    document.querySelector("#box_player2 button").disabled = true;
+                });
+            }
+        </script>
+    </div>
+</body>
+</html>

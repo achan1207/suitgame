@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="tetris.css">
+    <style>
+        body {
+            background-color: #d20000;
+            color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            background: url('image copy.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+        canvas {
+            background: #1e1e1e;
+            display: block;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #startButton {
+            font-size: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        #startButton:hover {
+            background-color: #45a049;
+        }
+        .background-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .back-button {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image">
+        <!-- Tombol kembali -->
+        <a href="base.html" class="back-button">⬅ Back</a>
+        <!-- Tombol Mulai -->
+        <button id="startButton">Start Game</button>
+    </div>
+    <div class="score">Score: <span id="score">0</span></div>
+    <canvas id="tetris" width="300" height="600"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.all.min.js"></script>
+    <script src="tetris.js"></script>
+</body>
+</html>

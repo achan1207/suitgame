@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Menu</title>
+    <link rel="stylesheet" href="base.css">
+    <style>
+        /* Additional CSS for description box */
+        .description-box {
+            background-color: #f8f8f8;
+            border: 2px solid #ccc;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            
+        }
+ 
+        .description-box h2 {
+            margin-top: 0;
+        }
+
+        .description-box p {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="sideMenu" class="side-menu">
+        <a href="#" class="close-btn" onclick="closeMenu()">&times;</a>
+        <a href="base.html">Home</a>
+        <a href="game.html">Suit</a>
+        <a href="tetris.html">Tetris</a>
+    </div>
+    <div class="content">
+        <span class="menu-btn" onclick="openMenu()">&#9776; Open Menu</span>
+    </div>
+    <center><strong><h1>WELCOME T-PLAY_STUDIO</h1></strong></center>
+
+    <!-- Description Box -->
+    <div class="description-box">
+        <h2>Description Game suit</h2>
+        <p>
+           Hallo selamat data di web kami, di sini kami membuat sebuah game generasi 3 di mana game kita ini 
+           adalah game suit gunting, batu, kertas. Permainan gunting batu kertas (atau dikenal sebagai "rock-paper-scissors" dalam bahasa Inggris) 
+           adalah permainan yang telah ada selama berabad-abad dan dianggap sebagai permainan sederhana yang dimainkan oleh dua orang. Setiap pemain
+           memilih satu dari tiga simbol—gunting, batu, atau kertas—dan hasilnya ditentukan berdasarkan aturan yang sederhana:
+        </p>
+        <li>Gunting mengalahkan kertas (karena gunting memotong kertas),</li>
+        <li>Kertas mengalahkan batu (karena kertas membungkus batu),</li>
+        <li>Batu mengalahkan gunting (karena batu menghancurkan gunting).</li>
+    </div>
+    <div class="description-box">
+        <h2>Description Game tetris</h2>
+        <p>
+            Tetris adalah salah satu permainan video paling terkenal di dunia, yang pertama kali dibuat oleh Alexey Pajitnov pada tahun 1984 di Moskow, 
+            Uni Soviet (sekarang Rusia). Permainan ini tidak hanya menjadi salah satu ikon budaya pop, tetapi juga dikenal sebagai pelopor dalam dunia permainan puzzle.
+        </p>
+        <audio id="audioPlayer" controls>
+        <source src="WhatsApp Audio 2024-11-23 at 17.00.01.mpeg" type="audio/mp3">
+    </div>
+    </div>
+    <script>
+        // Fungsi untuk membuka menu
+        function openMenu() {
+            document.getElementById("sideMenu").style.width = "250px";
+        }
+
+        // Fungsi untuk menutup menu
+        function closeMenu() {
+            document.getElementById("sideMenu").style.width = "0";
+        }
+    </script>
+    <script src="base.js"></script>
+</body>
+</html>

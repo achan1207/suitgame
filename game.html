@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Suit</title>
+    <link rel="stylesheet" href="game.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div id="sideMenu" class="side-menu">
+        <a href="#" class="close-btn" onclick="closeMenu()">&times;</a>
+        <a href="base.html">Home</a>
+        <a href="game.html">Suit</a>
+        <a href="tetris.html">Tetris</a>
+    </div>
+    <div class="content">
+        <span class="menu-btn" onclick="openMenu()">&#9776; Open Menu</span>
+    </div>
+    <div class="game-container">
+        <h1>Game Suit: Batu, Gunting, Kertas</h1>
+        <div id="mode-selection">
+            <button id="vs-npc">Lawan NPC</button>
+            <button>
+                <a href="suit.html" style="text-decoration: none; color: inherit;">Lawan Human</a>
+            </button>
+        </div>
+        <div id="game" style="display: none;">
+            <div id="player-selection">
+                <img src="batu.png" id="batu" alt="Batu">
+                <img src="gunting.png" id="gunting" alt="Gunting">
+                <img src="kertas.png" id="kertas" alt="Kertas">
+            </div>
+            <div id="result">
+                <p id="game-status"></p>
+                <button id="restart" style="display: none;">Main Lagi</button>
+            </div>
+        </div>
+    </div>
+     <audio id="select-sound" src="select.mp3"></audio> <!-- Sound when the player makes a choice -->
+     <audio id="win-sound" src="win.mp3"></audio> <!-- Sound for win -->
+     <audio id="lose-sound" src="lose.mp3"></audio> <!-- Sound for lose -->
+     <audio id="draw-sound" src="draw.mp3"></audio> <!-- Sound for draw -->
+    <script src="game.js"></script>
+</body>
+</html>
